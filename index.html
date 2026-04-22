@@ -120,67 +120,73 @@
   .pill{display:block;background:var(--bgl);border-left:3px solid var(--sky);padding:6px 10px;font-size:clamp(10px,1vw,12px);color:var(--navy);font-style:italic;line-height:1.5;margin-top:8px}
 
   /* ── PAGE 2 ── */
-  .p2{padding:clamp(24px,4vw,48px) clamp(20px,3vw,40px) clamp(32px,5vw,60px)}
-  .p2-inner{max-width:100%;margin:0 auto}
+  .p2{padding:0}
 
-  /* tech spotlight 2-col */
-  .spotlight-grid{
+  /* ROW 1 — tech spotlight: dark full-width band */
+  .p2-header-row{
+    background:var(--navy);
     display:grid;
-    grid-template-columns:1fr minmax(280px,360px);
-    gap:clamp(16px,2vw,24px);
-    align-items:start;
-    margin-bottom:28px;
+    grid-template-columns:1fr 340px;
+    gap:0;
   }
-  .spotlight-grid p{font-size:clamp(12px,1.1vw,14px)}
+  .p2-header-left{padding:28px 32px;border-right:1px solid rgba(255,255,255,.1)}
+  .p2-header-left .slabel{color:var(--sky)}
+  .p2-header-right{padding:28px 24px;display:flex;flex-direction:column;gap:14px}
 
   /* at-a-glance card */
-  .glance-card{background:var(--navy);border-radius:10px;padding:20px}
-  .glance-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:14px}
-  .glance-row{border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px}
+  .glance-card{background:rgba(255,255,255,.06);border-radius:8px;padding:16px;border:1px solid rgba(255,255,255,.1)}
+  .glance-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:12px}
+  .glance-row{border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:8px;margin-bottom:8px}
   .glance-row:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
-  .glance-label{font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-  .glance-val{font-size:clamp(11px,1vw,13px);color:var(--paleb);line-height:1.5}
+  .glance-label{font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+  .glance-val{font-size:12px;color:var(--paleb);line-height:1.5}
   .glance-val.white{color:#fff;font-weight:600}
-  .pe-lens{background:var(--bgl);border-left:3px solid var(--sky);padding:12px 14px;margin-top:14px;border-radius:0 6px 6px 0}
-  .pe-lens-label{font-size:9px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
-  .pe-lens p{font-size:clamp(11px,1vw,12.5px);color:var(--dg);margin-bottom:0;line-height:1.5}
+  .pe-lens{background:rgba(0,153,255,.1);border-left:3px solid var(--sky);padding:10px 12px;border-radius:0 6px 6px 0}
+  .pe-lens-label{font-size:9px;font-weight:700;color:var(--sky);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+  .pe-lens p{font-size:12px;color:var(--paleb);margin-bottom:0;line-height:1.5}
 
-  /* key metric */
-  .metric-hero{
-    background:linear-gradient(135deg,var(--navy),var(--midb));
-    border-radius:10px;
-    padding:clamp(20px,2.5vw,28px) clamp(20px,2.5vw,30px);
-    margin:20px 0;
+  /* ROW 2 — key metric: 3-col dark gradient band */
+  .p2-metric-row{
+    background:linear-gradient(135deg,var(--dark1),var(--midb));
     display:grid;
-    grid-template-columns:minmax(220px,280px) 1fr;
-    gap:clamp(20px,2.5vw,28px);
-    align-items:start;
+    grid-template-columns:200px 1fr 1fr;
+    gap:0;
   }
+  .metric-stat{padding:28px 24px;border-right:1px solid rgba(255,255,255,.1)}
+  .metric-bars{padding:28px 24px;border-right:1px solid rgba(255,255,255,.1)}
+  .metric-copy{padding:28px 24px}
   .m-unit{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:4px}
-  .m-num{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,68px);font-weight:900;color:var(--sky);line-height:1}
-  .m-name{font-family:'Playfair Display',serif;font-size:clamp(14px,1.6vw,18px);color:#fff;font-weight:700;margin:4px 0 10px}
-  .m-desc{color:var(--paleb);font-size:clamp(11px,1vw,13px);line-height:1.6;margin-bottom:0}
-  .bench-section{margin-top:18px}
-  .bench-label-row{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:10px}
-  .bench-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-  .bench-lbl{font-size:clamp(10px,1vw,12px);color:var(--paleb);width:130px;flex-shrink:0;line-height:1.3}
+  .m-num{font-family:'Playfair Display',serif;font-size:clamp(44px,5vw,62px);font-weight:900;color:var(--sky);line-height:1}
+  .m-name{font-family:'Playfair Display',serif;font-size:clamp(13px,1.4vw,16px);color:#fff;font-weight:700;margin:6px 0 10px;line-height:1.3}
+  .m-desc{color:var(--paleb);font-size:12px;line-height:1.6;margin-bottom:0}
+  .bench-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .bench-row:last-child{margin-bottom:0}
+  .bench-lbl{font-size:11px;color:var(--paleb);width:120px;flex-shrink:0;line-height:1.3}
   .bench-bg{flex:1;background:rgba(255,255,255,.12);border-radius:4px;height:8px}
   .bench-fill{height:8px;border-radius:4px}
-  .bench-val{font-size:clamp(10px,1vw,12px);font-weight:700;color:#fff;width:40px;text-align:right;flex-shrink:0}
-  .m-right p{color:var(--paleb);font-size:clamp(12px,1.1vw,13.5px);line-height:1.6;margin-bottom:10px}
-  .m-right p:last-child{margin-bottom:0}
-  .m-right strong{color:#fff}
+  .bench-val{font-size:11px;font-weight:700;color:#fff;width:40px;text-align:right;flex-shrink:0}
+  .metric-copy p{color:var(--paleb);font-size:12.5px;line-height:1.6;margin-bottom:10px}
+  .metric-copy p:last-child{margin-bottom:0}
+
+  /* ROW 3 — bottom line + answer: 2-col light band */
+  .p2-bottom-row{
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:0;
+    background:var(--bgl);
+  }
+  .p2-answer-col{padding:24px 24px;display:flex;align-items:flex-start}
 
   /* callout */
-  .callout{background:var(--navy);border-radius:10px;padding:clamp(18px,2.5vw,26px) clamp(18px,2.5vw,28px);margin:20px 0}
-  .callout h3{color:var(--sky);margin-top:0;margin-bottom:10px;font-size:clamp(14px,1.6vw,17px)}
-  .callout p{color:var(--paleb);font-size:clamp(12px,1.1vw,14px);margin-bottom:8px;line-height:1.7}
+  .callout{background:var(--navy);border-radius:0;padding:28px 32px;margin:0}
+  .callout h3{color:var(--sky);margin-top:0;margin-bottom:10px;font-size:clamp(14px,1.4vw,16px)}
+  .callout p{color:var(--paleb);font-size:13px;margin-bottom:8px;line-height:1.7}
   .callout p:last-child{margin-bottom:0}
   .callout strong{color:#fff}
   .callout em{color:var(--lb)}
 
   /* answer */
-  .answer{background:var(--bgl);border:2px dashed var(--blue);border-radius:8px;padding:16px 20px;margin:20px 0 0}
+  .answer{background:var(--bg);border:2px dashed var(--blue);border-radius:8px;padding:18px 20px;margin:0;width:100%}
   .alabel{color:var(--blue);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:7px}
   .answer p{font-size:clamp(12px,1.1vw,14px);color:var(--dg);margin-bottom:0}
   .answer strong{color:var(--navy)}
@@ -200,14 +206,20 @@
   .fd{color:var(--fg3);font-size:clamp(9px,1vw,11px);max-width:460px;line-height:1.6}
 
   /* ── RESPONSIVE ── */
-  @media(max-width:900px){
+  @media(max-width:960px){
     .p1{grid-template-columns:1fr}
     .col-hist{border-left:none;border-top:3px solid var(--sky)}
-    .spotlight-grid{grid-template-columns:1fr}
-    .metric-hero{grid-template-columns:1fr}
+    .p2-header-row{grid-template-columns:1fr}
+    .p2-header-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+    .p2-metric-row{grid-template-columns:1fr 1fr}
+    .metric-stat{grid-column:1/-1;border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+    .p2-bottom-row{grid-template-columns:1fr}
+    .p2-answer-col{padding:20px 28px}
     .pbs{display:none}
   }
   @media(max-width:600px){
+    .p2-metric-row{grid-template-columns:1fr}
+    .metric-bars{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
     .foot{flex-direction:column;align-items:flex-start}
     .meta{display:none}
   }
@@ -334,114 +346,74 @@
 
 <!-- PAGE 2 -->
 <div class="p2">
-  <div class="p2-inner">
 
-    <!-- TECH SPOTLIGHT -->
-    <div class="slabel">Tech Spotlight — March 2026</div>
-    <h2>Things To Watch: EagleView One</h2>
-    <p style="color:var(--mg);margin-bottom:4px">Each month we spotlight one tool, platform, or technology worth understanding — whether you're an operator, a PE investor evaluating platforms, or both.</p>
-    <hr class="rule">
-
-    <div class="spotlight-grid">
-      <div>
-        <p>If you've been in roofing for more than a few years, you know EagleView as the company that produces the aerial measurement reports your estimators order before every job. That description no longer does it justice. In March 2026, EagleView formally launched <strong style="color:var(--navy)">EagleView One</strong> — a unified, subscription-based platform that combines high-precision aerial imagery, AI-powered analytics, and full 3D property modeling into a single interface accessible from any device. The company is positioning it not as a reporting tool but as a <em>property intelligence platform</em> — and the distinction matters.</p>
-        <p>The headline capability is 3D exterior measurement at 98.77% claimed accuracy, now covering not just roofs but walls, windows, and doors for both residential and commercial properties. For contractors, that means a single platform generating complete exterior scope — not just the roof report. For PE platforms managing multi-crew operations across geographies, it means standardized measurement inputs that survive crew and estimator turnover. EagleView's CEO Piers Dormeyer put it plainly: the goal is to be the single source of truth for every property-related workflow, from estimate to insurance claim to predictive maintenance scheduling.</p>
-        <p style="margin-bottom:0">The March 12th live showcase event introduced EagleView One's virtual collaboration features — multiple stakeholders accessing and manipulating the same 3D property model simultaneously. Think adjuster, contractor, and property owner reviewing the same damage documentation in real time, without anyone climbing a ladder. EagleView also announced <strong style="color:var(--navy)">EagleView Labs</strong>, a dedicated AI innovation hub, and appointed Dr. Dylan Kesler to lead AI research — signaling that the product roadmap is investment-backed, not marketing theater.</p>
+  <!-- ROW 1: Tech Spotlight header + At a Glance side by side -->
+  <div class="p2-header-row">
+    <div class="p2-header-left">
+      <div class="slabel">Tech Spotlight — March 2026</div>
+      <h2 style="color:#fff;margin-bottom:8px">Things To Watch: EagleView One</h2>
+      <p style="color:var(--paleb);font-size:13px;margin-bottom:14px">Each month we spotlight one tool, platform, or technology worth understanding — whether you're an operator, a PE investor evaluating platforms, or both.</p>
+      <hr style="height:2px;background:linear-gradient(90deg,var(--sky),transparent);border:none;margin:0 0 16px">
+      <p style="color:var(--paleb);font-size:13px">If you've been in roofing for more than a few years, you know EagleView as the company that produces the aerial measurement reports your estimators order before every job. That description no longer does it justice. In March 2026, EagleView formally launched <strong style="color:#fff">EagleView One</strong> — a unified, subscription-based platform combining high-precision aerial imagery, AI-powered analytics, and full 3D property modeling into a single interface. The company is positioning it not as a reporting tool but as a <em style="color:var(--lb)">property intelligence platform</em> — and the distinction matters.</p>
+      <p style="color:var(--paleb);font-size:13px">The headline capability is 3D exterior measurement at 98.77% claimed accuracy, now covering roofs, walls, windows, and doors for both residential and commercial properties. For PE platforms managing multi-crew operations across geographies, it means standardized measurement inputs that survive crew and estimator turnover. EagleView's CEO Piers Dormeyer put it plainly: the goal is to be the single source of truth for every property-related workflow, from estimate to insurance claim to predictive maintenance scheduling.</p>
+      <p style="color:var(--paleb);font-size:13px;margin-bottom:0">The March 12th live event introduced virtual collaboration features — multiple stakeholders accessing and manipulating the same 3D property model simultaneously. EagleView also announced <strong style="color:#fff">EagleView Labs</strong>, a dedicated AI innovation hub, and appointed Dr. Dylan Kesler to lead AI research — signaling that the product roadmap is investment-backed, not marketing theater.</p>
+    </div>
+    <div class="p2-header-right">
+      <div class="glance-card">
+        <div class="glance-title">At a Glance</div>
+        <div class="glance-row"><div class="glance-label">Platform</div><div class="glance-val white">EagleView One</div></div>
+        <div class="glance-row"><div class="glance-label">Category</div><div class="glance-val">AI-Powered Property Intelligence</div></div>
+        <div class="glance-row"><div class="glance-label">Key Capability</div><div class="glance-val">3D exterior measurement — roof, walls, windows, doors — at 98.77% accuracy from aerial imagery alone</div></div>
+        <div class="glance-row"><div class="glance-label">What's New in March</div><div class="glance-val">EagleView One live launch (Mar 12), EagleView Labs AI hub announced, virtual multi-stakeholder collaboration enabled</div></div>
+        <div class="glance-row"><div class="glance-label">Best For</div><div class="glance-val">PE platforms standardizing workflows across multi-crew, multi-market operations; insurance restoration contractors</div></div>
+        <div class="glance-row"><div class="glance-label">Watch-Out</div><div class="glance-val">Measurement and intelligence platform only — not a CRM or proposal tool. Still need AccuLynx or ServiceTitan to close the loop.</div></div>
       </div>
-
-      <div>
-        <div class="glance-card">
-          <div class="glance-title">At a Glance</div>
-          <div class="glance-row">
-            <div class="glance-label">Platform</div>
-            <div class="glance-val white">EagleView One</div>
-          </div>
-          <div class="glance-row">
-            <div class="glance-label">Category</div>
-            <div class="glance-val">AI-Powered Property Intelligence</div>
-          </div>
-          <div class="glance-row">
-            <div class="glance-label">Key Capability</div>
-            <div class="glance-val">3D exterior measurement — roof, walls, windows, doors — at 98.77% accuracy from aerial imagery alone</div>
-          </div>
-          <div class="glance-row">
-            <div class="glance-label">What's New in March</div>
-            <div class="glance-val">EagleView One live launch (Mar 12), EagleView Labs AI hub announced, virtual multi-stakeholder collaboration enabled</div>
-          </div>
-          <div class="glance-row">
-            <div class="glance-label">Best For</div>
-            <div class="glance-val">PE platforms standardizing workflows across multi-crew, multi-market operations; insurance restoration contractors</div>
-          </div>
-          <div class="glance-row">
-            <div class="glance-label">Watch-Out</div>
-            <div class="glance-val">Measurement and intelligence platform only — not a CRM or proposal tool. You still need a separate workflow layer (AccuLynx, ServiceTitan) to close the loop.</div>
-          </div>
-        </div>
-        <div class="pe-lens">
-          <div class="pe-lens-label">PE Investor Lens</div>
-          <p>A target platform running EagleView One across all crews has standardized measurement inputs that survive ownership transition. That's a direct multiple driver — it removes estimator key-man risk from the diligence conversation.</p>
-        </div>
+      <div class="pe-lens">
+        <div class="pe-lens-label">PE Investor Lens</div>
+        <p>A target platform running EagleView One across all crews has standardized measurement inputs that survive ownership transition — removing estimator key-man risk from the diligence conversation entirely.</p>
       </div>
     </div>
+  </div>
 
-    <!-- KEY METRIC -->
-    <div class="slabel">Key Metric</div>
-    <h2>Revenue Per Crew Per Day (RPCD)</h2>
-    <hr class="rule">
-
-    <div class="metric-hero">
-      <div>
-        <div class="m-unit">Target Benchmark</div>
-        <div class="m-num">$8K</div>
-        <div class="m-name">Revenue Per Crew Per Day</div>
-        <p class="m-desc">The operational heartbeat of a roofing business. If you don't track RPCD, you don't know if you're making money until it's too late.</p>
-        <div class="bench-section">
-          <div class="bench-label-row">Industry Benchmarks</div>
-          <div class="bench-row">
-            <div class="bench-lbl">Struggling operator</div>
-            <div class="bench-bg"><div class="bench-fill" style="width:30%;background:var(--mg)"></div></div>
-            <div class="bench-val">&lt;$4K</div>
-          </div>
-          <div class="bench-row">
-            <div class="bench-lbl">Average operator</div>
-            <div class="bench-bg"><div class="bench-fill" style="width:52%;background:var(--lb)"></div></div>
-            <div class="bench-val">~$6K</div>
-          </div>
-          <div class="bench-row">
-            <div class="bench-lbl">PE-ready operator</div>
-            <div class="bench-bg"><div class="bench-fill" style="width:72%;background:var(--sky)"></div></div>
-            <div class="bench-val">$8K+</div>
-          </div>
-          <div class="bench-row">
-            <div class="bench-lbl">Top-quartile platform</div>
-            <div class="bench-bg"><div class="bench-fill" style="width:100%;background:#fff"></div></div>
-            <div class="bench-val">$12K+</div>
-          </div>
-        </div>
-      </div>
-      <div class="m-right">
-        <p><strong>What it measures:</strong> Total daily revenue divided by the number of active crews on site that day. A crew is typically 3–5 workers plus a lead. This single number tells you whether your crews are sized right, jobs sequenced efficiently, and materials arriving on time.</p>
-        <p><strong>Why PE buyers care:</strong> RPCD is a pre-diligence filter. An operator running $8K+ RPCD across 5+ crews has solved three hard problems: labor productivity, job scheduling, and material logistics. Operators below $5K consistently reveal hidden dysfunction — scope creep, rework, and crew downtime that doesn't show up in the P&amp;L until after close.</p>
-        <p><strong>March 2026 relevance:</strong> With Atlas, CertainTeed, and TAMKO executing 5–8% price increases effective late March/April, operators tracking RPCD in real time can catch margin compression at the crew level before it bleeds into quarterly EBITDA. Those without it will discover the damage in May.</p>
-        <p style="margin-bottom:0"><strong>Watch-out:</strong> High RPCD on residential combined with low commercial exposure can be misleading — residential crews run faster but are more storm-dependent. Normalize for mix before comparing across markets or against a platform peer.</p>
-      </div>
+  <!-- ROW 2: Key Metric (full width, 3-col internal) -->
+  <div class="p2-metric-row">
+    <div class="metric-stat">
+      <div class="m-unit">Target Benchmark</div>
+      <div class="m-num">$8K</div>
+      <div class="m-name">Revenue Per Crew Per Day</div>
+      <p class="m-desc">The operational heartbeat of a roofing business. If you don't track RPCD, you don't know if you're making money until it's too late.</p>
     </div>
+    <div class="metric-bars">
+      <div class="slabel" style="color:var(--lb);margin-bottom:12px">Industry Benchmarks</div>
+      <div class="bench-row"><div class="bench-lbl">Struggling operator</div><div class="bench-bg"><div class="bench-fill" style="width:30%;background:var(--mg)"></div></div><div class="bench-val">&lt;$4K</div></div>
+      <div class="bench-row"><div class="bench-lbl">Average operator</div><div class="bench-bg"><div class="bench-fill" style="width:52%;background:var(--lb)"></div></div><div class="bench-val">~$6K</div></div>
+      <div class="bench-row"><div class="bench-lbl">PE-ready operator</div><div class="bench-bg"><div class="bench-fill" style="width:72%;background:var(--sky)"></div></div><div class="bench-val">$8K+</div></div>
+      <div class="bench-row"><div class="bench-lbl">Top-quartile</div><div class="bench-bg"><div class="bench-fill" style="width:100%;background:#fff"></div></div><div class="bench-val">$12K+</div></div>
+    </div>
+    <div class="metric-copy">
+      <p style="color:var(--paleb);font-size:13px"><strong style="color:#fff">What it measures:</strong> Total daily revenue ÷ active crews on site. A crew = 3–5 workers plus a lead. Reveals crew sizing, job sequencing, and material delivery efficiency in one number.</p>
+      <p style="color:var(--paleb);font-size:13px"><strong style="color:#fff">Why PE buyers care:</strong> $8K+ across 5+ crews means labor productivity, scheduling, and logistics are solved. Below $5K reveals hidden scope creep, rework, and downtime invisible in the P&amp;L until after close.</p>
+      <p style="color:var(--paleb);font-size:13px"><strong style="color:#fff">March relevance:</strong> With Atlas, CertainTeed, and TAMKO raising prices 5–8% in late March, operators tracking RPCD daily catch margin compression at crew level before it hits quarterly EBITDA.</p>
+      <p style="color:var(--paleb);font-size:13px;margin-bottom:0"><strong style="color:#fff">Watch-out:</strong> High residential RPCD with low commercial exposure misleads — residential runs faster but is storm-dependent. Normalize for mix before cross-market comparison.</p>
+    </div>
+  </div>
 
-    <!-- BOTTOM LINE -->
-    <div class="callout">
+  <!-- ROW 3: Bottom Line + Riddle Answer side by side -->
+  <div class="p2-bottom-row">
+    <div class="callout" style="margin:0;flex:1;min-width:0">
       <h3>Beyond the Shingle Bottom Line — March 2026</h3>
-      <p>March delivered a clear message: the consolidation window is compressing from both ends simultaneously. <strong>Above the market,</strong> QXO closed Kodiak and now controls a $200B+ addressable market with ~$10B still to deploy — and it has named its next targets. <strong>Inside the market,</strong> Atlas, CertainTeed, and TAMKO executed coordinated 5–8% price increases effective the final week of March, hitting every contractor with open bids and no locked-in material pricing. The operators squeezed hardest are the ones with neither a procurement strategy nor the tech stack to reprice estimates in real time.</p>
-      <p>Meanwhile, the DOL's move to rescind the 2024 independent contractor rule — confirmed in March's legal roundup — offers PE platforms a potential reprieve on W-2 reclassification exposure. That is not permission to ignore the issue. <em>It is permission to get your documentation in order while the regulatory window is favorable.</em> The rule is pending, not resolved.</p>
-      <p>The operators entering Q2 in the strongest position are those who spent March doing three things: <strong>locking material pricing before April effective dates, tracking RPCD to catch margin compression at the crew level, and closing the gap between their estimating cycle and the market's repricing cycle.</strong> Everyone else is reacting. Know your RPCD before a buyer's diligence team does.</p>
+      <p>March delivered a clear message: the consolidation window is compressing from both ends simultaneously. <strong>Above the market,</strong> QXO closed Kodiak and now controls a $200B+ addressable market with ~$10B still to deploy — and it has named its next targets. <strong>Inside the market,</strong> Atlas, CertainTeed, and TAMKO executed coordinated 5–8% price increases effective the final week of March, hitting every contractor with open bids and no locked-in material pricing.</p>
+      <p>The DOL's move to rescind the 2024 independent contractor rule offers PE platforms a potential reprieve on W-2 reclassification exposure. <em>It is permission to get your documentation in order while the regulatory window is favorable.</em> The rule is pending, not resolved.</p>
+      <p style="margin-bottom:0">The operators entering Q2 in the strongest position spent March doing three things: <strong>locking material pricing before April effective dates, tracking RPCD to catch margin compression at the crew level, and closing the gap between their estimating cycle and the market's repricing cycle.</strong> Know your RPCD before a buyer's diligence team does.</p>
     </div>
-
-    <!-- ANSWER -->
-    <div class="answer">
-      <div class="alabel">Riddle Answer</div>
-      <p><strong>Answer: Pitch.</strong> In roofing, pitch (slope) determines drainage and structural integrity — too flat and you get ponding water; steep is better. In private equity, a "pitch" is the investor presentation, and a steeper growth story signals a more compelling multiple. Same word. Entirely different anxieties — and somehow, the same consequences when you get it wrong.</p>
+    <div class="p2-answer-col">
+      <div class="answer" style="margin:0">
+        <div class="alabel">Riddle Answer</div>
+        <p><strong>Answer: Pitch.</strong> In roofing, pitch (slope) determines drainage and structural integrity — too flat and you get ponding water; steep is better. In private equity, a "pitch" is the investor presentation, and a steeper growth story signals a more compelling multiple. Same word. Entirely different anxieties — and somehow, the same consequences when you get it wrong.</p>
+      </div>
     </div>
+  </div>
 
-  </div><!-- end p2-inner -->
 </div><!-- end p2 -->
 
 <!-- FOOTER -->

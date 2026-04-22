@@ -1,1 +1,457 @@
-# fullwebsitetest
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond the Shingle – April 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root{
+    --navy:#003F6C;--blue:#0074D9;--sky:#0099FF;--midb:#00539B;
+    --lb:#66B2FF;--paleb:#99CCFF;--dark1:#003C50;
+    --ink:#121212;--fg2:#6C6C6C;--fg3:#B0B0B0;
+    --bg:#FFFFFF;--bgl:#F0F0F0;--bgn:#E5E5E5;
+    --dg:#4A4A4A;--mg:#7D7D7D;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  body{
+    background:var(--bgl);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--ink);
+  }
+
+  /* ── MASTHEAD ── */
+  .mast{
+    background:var(--navy);
+    padding:16px 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  .logo{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-weight:900;color:#fff}
+  .logo span{color:var(--lb)}
+  .meta{color:var(--fg3);font-size:clamp(8px,1vw,10px);text-transform:uppercase;letter-spacing:1px;text-align:right;line-height:1.9}
+
+  /* ── HERO ── */
+  .hero{
+    background:linear-gradient(135deg,var(--dark1),var(--navy));
+    padding:clamp(28px,5vw,52px) 5vw clamp(22px,4vw,40px);
+    border-bottom:4px solid var(--sky);
+  }
+  .badge{display:inline-block;background:var(--sky);color:#fff;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:10px}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,42px);font-weight:900;color:#fff;line-height:1.15;max-width:800px}
+  .hero h1 em{color:var(--lb);font-style:normal}
+  .hero p{color:var(--paleb);font-size:clamp(10px,1.2vw,13px);margin-top:8px;letter-spacing:.5px}
+
+  /* ── PAGE BREAK BARS ── */
+  .pb{
+    background:var(--midb);
+    color:#fff;
+    padding:12px 5vw;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .pbn{background:var(--sky);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;color:#fff}
+  .pbt{font-family:'Playfair Display',serif;font-size:clamp(14px,1.8vw,18px);font-weight:700}
+  .pbs{color:var(--paleb);font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-left:auto}
+
+  /* ── SHARED TYPOGRAPHY ── */
+  .rule{height:2px;background:linear-gradient(90deg,var(--sky),transparent);border:none;margin:8px 0 20px}
+  .slabel{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin-bottom:5px}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.2}
+  h3{font-family:'Playfair Display',serif;font-size:clamp(14px,1.6vw,17px);font-weight:700;color:var(--midb);margin:16px 0 8px}
+  p{margin-bottom:12px;color:var(--dg);font-size:clamp(12px,1.1vw,14px);line-height:1.6}
+
+  /* ── PAGE 1 — 3-COL GRID ── */
+  .p1{
+    display:grid;
+    grid-template-columns:minmax(200px,22%) 1fr minmax(200px,22%);
+    width:100%;
+  }
+
+  /* col 1 – riddle */
+  .col-riddle{background:var(--navy);padding:clamp(18px,3vw,30px) clamp(16px,2.5vw,26px)}
+  .col-riddle .slabel{color:var(--lb)}
+  .col-riddle h2{color:#fff;font-size:clamp(15px,1.6vw,19px);margin-bottom:10px}
+  .riddle-inner{background:rgba(255,255,255,.07);border-left:4px solid var(--sky);padding:16px;margin-bottom:14px;border-radius:0 4px 4px 0}
+  .riddle-inner p{color:#dde;font-size:clamp(11px,1vw,13px);line-height:1.7;margin-bottom:0}
+  .riddle-inner strong{color:var(--lb)}
+  .riddle-hint{color:var(--fg3);font-size:11px;font-style:italic}
+
+  /* col 2 – high five */
+  .col-hf{background:var(--dark1);padding:clamp(18px,3vw,30px) clamp(16px,2.5vw,26px)}
+  .col-hf .slabel{color:var(--sky)}
+  .col-hf h2{color:#fff;font-size:clamp(15px,1.6vw,19px);margin-bottom:4px}
+  .col-hf .sub{color:var(--paleb);font-size:clamp(10px,1vw,12px);margin-bottom:16px}
+  .hl{border-bottom:1px solid rgba(255,255,255,.08);padding:12px 0;display:grid;grid-template-columns:32px 1fr;gap:6px}
+  .hl:last-child{border-bottom:none;padding-bottom:0}
+  .hln{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:rgba(255,255,255,.08);line-height:1;padding-top:3px}
+  .htag{display:inline-block;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-bottom:4px}
+  .tma{background:rgba(0,153,255,.2);color:var(--paleb)}
+  .tsc{background:rgba(102,178,255,.15);color:#99d6ff}
+  .treg{background:rgba(0,115,230,.2);color:#aad4ff}
+  .tpe{background:rgba(0,80,117,.4);color:var(--lb)}
+  .hlh{font-weight:600;color:#fff;font-size:clamp(11px,1.1vw,13px);margin-bottom:3px;line-height:1.4}
+  .hla{font-size:clamp(10px,1vw,12px);color:#aab;line-height:1.5;margin-bottom:3px}
+  .hlsw{font-size:clamp(10px,1vw,11.5px);color:var(--sky);font-weight:600}
+
+  /* col 3 – history */
+  .col-hist{background:var(--bgl);padding:clamp(18px,3vw,30px) clamp(16px,2.5vw,26px);border-left:3px solid var(--sky)}
+  .col-hist .slabel{color:var(--blue)}
+  .col-hist h2{color:var(--navy);font-size:clamp(15px,1.6vw,19px);margin-bottom:4px}
+  .col-hist .sub{color:var(--fg2);font-size:clamp(10px,1vw,12px);margin-bottom:16px}
+  .hcard{background:var(--bg);border-top:3px solid var(--blue);border-radius:0 0 6px 6px;padding:14px 16px;margin-bottom:14px}
+  .hcard:last-child{margin-bottom:0}
+  .hcard h4{font-family:'Playfair Display',serif;font-size:clamp(12px,1.1vw,14px);font-weight:700;color:var(--navy);margin-bottom:7px;line-height:1.3}
+  .hcard p{font-size:clamp(11px,1vw,12.5px);color:var(--dg);margin-bottom:7px;line-height:1.5}
+  .hcard p:last-child{margin-bottom:0}
+  .pill{display:block;background:var(--bgl);border-left:3px solid var(--sky);padding:6px 10px;font-size:clamp(10px,1vw,12px);color:var(--navy);font-style:italic;line-height:1.5;margin-top:8px}
+
+  /* ── PAGE 2 ── */
+  .p2{padding:clamp(24px,4vw,48px) 5vw clamp(32px,5vw,60px)}
+  .p2-inner{max-width:1200px;margin:0 auto}
+
+  /* tech spotlight 2-col */
+  .spotlight-grid{
+    display:grid;
+    grid-template-columns:1fr minmax(260px,320px);
+    gap:clamp(16px,2.5vw,28px);
+    align-items:start;
+    margin-bottom:32px;
+  }
+  .spotlight-grid p{font-size:clamp(12px,1.1vw,14px)}
+
+  /* at-a-glance card */
+  .glance-card{background:var(--navy);border-radius:10px;padding:20px}
+  .glance-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:14px}
+  .glance-row{border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px;margin-bottom:10px}
+  .glance-row:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .glance-label{font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+  .glance-val{font-size:clamp(11px,1vw,13px);color:var(--paleb);line-height:1.5}
+  .glance-val.white{color:#fff;font-weight:600}
+  .pe-lens{background:var(--bgl);border-left:3px solid var(--sky);padding:12px 14px;margin-top:14px;border-radius:0 6px 6px 0}
+  .pe-lens-label{font-size:9px;font-weight:700;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+  .pe-lens p{font-size:clamp(11px,1vw,12.5px);color:var(--dg);margin-bottom:0;line-height:1.5}
+
+  /* key metric */
+  .metric-hero{
+    background:linear-gradient(135deg,var(--navy),var(--midb));
+    border-radius:10px;
+    padding:clamp(20px,3vw,30px) clamp(20px,3vw,32px);
+    margin:20px 0;
+    display:grid;
+    grid-template-columns:minmax(200px,260px) 1fr;
+    gap:clamp(20px,3vw,32px);
+    align-items:start;
+  }
+  .m-unit{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:4px}
+  .m-num{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,68px);font-weight:900;color:var(--sky);line-height:1}
+  .m-name{font-family:'Playfair Display',serif;font-size:clamp(14px,1.6vw,18px);color:#fff;font-weight:700;margin:4px 0 10px}
+  .m-desc{color:var(--paleb);font-size:clamp(11px,1vw,13px);line-height:1.6;margin-bottom:0}
+  .bench-section{margin-top:18px}
+  .bench-label-row{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:10px}
+  .bench-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .bench-lbl{font-size:clamp(10px,1vw,12px);color:var(--paleb);width:130px;flex-shrink:0;line-height:1.3}
+  .bench-bg{flex:1;background:rgba(255,255,255,.12);border-radius:4px;height:8px}
+  .bench-fill{height:8px;border-radius:4px}
+  .bench-val{font-size:clamp(10px,1vw,12px);font-weight:700;color:#fff;width:40px;text-align:right;flex-shrink:0}
+  .m-right p{color:var(--paleb);font-size:clamp(12px,1.1vw,13.5px);line-height:1.6;margin-bottom:10px}
+  .m-right p:last-child{margin-bottom:0}
+  .m-right strong{color:#fff}
+
+  /* callout */
+  .callout{background:var(--navy);border-radius:10px;padding:clamp(20px,3vw,28px) clamp(20px,3vw,30px);margin:24px 0}
+  .callout h3{color:var(--sky);margin-top:0;margin-bottom:10px;font-size:clamp(14px,1.6vw,17px)}
+  .callout p{color:var(--paleb);font-size:clamp(12px,1.1vw,14px);margin-bottom:8px;line-height:1.7}
+  .callout p:last-child{margin-bottom:0}
+  .callout strong{color:#fff}
+  .callout em{color:var(--lb)}
+
+  /* answer */
+  .answer{background:var(--bgl);border:2px dashed var(--blue);border-radius:8px;padding:18px 22px;margin:24px 0 0}
+  .alabel{color:var(--blue);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:7px}
+  .answer p{font-size:clamp(12px,1.1vw,14px);color:var(--dg);margin-bottom:0}
+  .answer strong{color:var(--navy)}
+
+  /* footer */
+  .foot{
+    background:var(--navy);
+    padding:clamp(20px,3vw,28px) 5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .ft{font-family:'Playfair Display',serif;color:var(--lb);font-size:clamp(15px,1.8vw,18px);font-weight:700}
+  .fs{color:var(--paleb);font-size:clamp(9px,1vw,11px);margin-top:3px;line-height:1.8}
+  .fd{color:var(--fg3);font-size:clamp(9px,1vw,11px);max-width:460px;line-height:1.6}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    .p1{grid-template-columns:1fr}
+    .col-hist{border-left:none;border-top:3px solid var(--sky)}
+    .spotlight-grid{grid-template-columns:1fr}
+    .metric-hero{grid-template-columns:1fr}
+    .pbs{display:none}
+  }
+  @media(max-width:600px){
+    .foot{flex-direction:column;align-items:flex-start}
+    .meta{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="logo">Beyond the <span>Shingle</span></div>
+  <div class="meta">Vol. 4 · Issue 4 · April 2026 &nbsp;|&nbsp; Covering March 2026 Activity<br>Intelligence for Roofing Executives &amp; PE Investors</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">April 2026 Edition — March Intelligence</div>
+  <h1>Top-Line <em>Ridges</em> &amp; Bottom-Line <em>Leaks</em></h1>
+  <p>M&amp;A · Market Intelligence · Historical Perspective · The Edge · Key Metrics</p>
+</div>
+
+<!-- PAGE 1 BAR -->
+<div class="pb">
+  <div class="pbn">1</div>
+  <div class="pbt">The Hook, Market Intelligence &amp; Legacy</div>
+  <div class="pbs">Riddle · March High-Five · History</div>
+</div>
+
+<!-- PAGE 1 GRID -->
+<div class="p1">
+
+  <!-- RIDDLE -->
+  <div class="col-riddle">
+    <div class="slabel">The Top Out</div>
+    <h2>Riddle of the Month</h2>
+    <hr style="height:2px;background:linear-gradient(90deg,var(--sky),transparent);border:none;margin:8px 0 16px">
+    <div class="riddle-inner">
+      <p><strong>I'm feared on job sites when the angle is wrong and welcomed in boardrooms when the number is right. I make a building's water run away and make an investor's IRR sprint toward the light. A flatter version of me makes the shingles weep; a steeper version makes the GP leap. What am I?</strong></p>
+    </div>
+    <p class="riddle-hint">↓ Answer revealed at the end of this issue.</p>
+  </div>
+
+  <!-- HIGH FIVE -->
+  <div class="col-hf">
+    <div class="slabel">March 2026 Market Intelligence</div>
+    <h2>The Monthly High-Five</h2>
+    <p class="sub">Five March headlines. Zero fluff. The moves that matter.</p>
+
+    <div class="hl">
+      <div class="hln">1</div>
+      <div>
+        <span class="htag tma">M&amp;A</span>
+        <div class="hlh">QXO Closes $2.25B Kodiak Deal — Eyes $50B Empire by 2031</div>
+        <div class="hla">QXO closed its acquisition of Kodiak Building Partners in late March, combining Beacon's roofing/exterior platform with Kodiak's $2.4B lumber, trusses, gypsum and structural products base. Valued at ~10.7x projected 2025 EBITDA (7.3x with synergies). QXO now eyes Boise Cascade, BlueLinx and US LBM as next targets with ~$10B in remaining war chest.</div>
+        <div class="hlsw">⚡ QXO's addressable market just expanded to $200B+. The consolidation playbook is no longer just about roofing.</div>
+      </div>
+    </div>
+    <div class="hl">
+      <div class="hln">2</div>
+      <div>
+        <span class="htag tsc">Materials</span>
+        <div class="hlh">Major Manufacturers Fire Coordinated Price Increases — Effective Late March/April</div>
+        <div class="hla">Atlas Roofing (5–8%), CertainTeed (up to 8%), and TAMKO announced price increases on shingles, underlayment and ventilation — effective March 23–April 15, 2026, regardless of prior order entry date. Aluminum mill shapes up 33% YoY per AGC; steel mill products rose 20.7% YoY as of January 2026.</div>
+        <div class="hlsw">⚡ Contractors with open bids from pre-March proposals are absorbing margin gaps in real time. Lock in material pricing before Q2 deliveries.</div>
+      </div>
+    </div>
+    <div class="hl">
+      <div class="hln">3</div>
+      <div>
+        <span class="htag treg">Regulatory</span>
+        <div class="hlh">DOL Moves to Rescind 2024 Independent Contractor Rule</div>
+        <div class="hla">In late February — confirmed via March legal roundup — the DOL's Wage and Hour Division proposed rescinding the 2024 independent contractor rule, returning toward the narrower 2021 standard. This shift favors a broader definition of independent contractor status, potentially reducing W-2 reclassification risk for subcontractor-heavy platforms.</div>
+        <div class="hlsw">⚡ Welcome relief for PE platforms with 1099-heavy labor models — but "pending" means nothing is locked. Continue modeling both scenarios.</div>
+      </div>
+    </div>
+    <div class="hl">
+      <div class="hln">4</div>
+      <div>
+        <span class="htag tpe">PE Activity</span>
+        <div class="hlh">Midwest Roll-Up Activity Accelerates: Royalty Roofing, Ridgeline &amp; More</div>
+        <div class="hla">March saw continued bolt-on activity in the Midwest: Royalty Roofing USA expanded its commercial footprint by acquiring Division 7 across Michigan; Ridgeline Roofing &amp; Restoration acquired Bold North Roofing in the Twin Cities/western Wisconsin market. Both moves reflect geographic density strategies prioritized by PE buyers in high-storm-frequency corridors.</div>
+        <div class="hlsw">⚡ Midwest density plays are accelerating ahead of spring storm season. Target-rich geography meets non-discretionary demand cycle.</div>
+      </div>
+    </div>
+    <div class="hl">
+      <div class="hln">5</div>
+      <div>
+        <span class="htag tsc">Supply Chain</span>
+        <div class="hlh">Construction Input Prices Up 2.9% YoY — Spring Season Pricing Pressure Builds</div>
+        <div class="hla">ABC/BLS PPI data through January 2026 showed nonresidential construction input prices up 2.9% YoY — annualized January rate described by ABC as a "blistering" 7.1%. Freight costs forecast to rise 4–6% in 2026. Spring is peak pricing season and contractors are entering bid season with no material relief in sight.</div>
+        <div class="hlsw">⚡ Operators without fixed-price supplier contracts are entering spring with exposed margins. Procurement strategy is now a competitive advantage.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="col-hist">
+    <div class="slabel">Retrospective</div>
+    <h2>Lessons from the Ladder</h2>
+    <p class="sub">History this industry either learned from — or repeats.</p>
+
+    <div class="hcard">
+      <h4>The First Roll-Up Wave: What They Got Wrong (Late 1990s–Early 2000s)</h4>
+      <p>The first institutional wave imposed uniform labor models on hyper-local markets and centralized procurement before systems existed to manage it. They paid premium multiples for revenue they couldn't retain post-transition. Result: value destruction, operator exodus after earnout, and a generation of PE skeptics in the trades.</p>
+      <p>Platforms that survived share one trait: they bought the <em>operator</em> as much as the business — retaining founders with real equity and building tech infrastructure before they needed it.</p>
+      <div class="pill">🎓 Earnout structures that ignore workforce continuity are the sector's #1 value destroyer.</div>
+    </div>
+
+    <div class="hcard" style="border-top-color:var(--sky)">
+      <h4 style="color:var(--midb)">Katrina (2005) &amp; the 2011 Super Outbreak</h4>
+      <p><strong>Katrina:</strong> Gulf Coast labor spiked 40–60% in 90 days. Lead times stretched 6+ months. Undercapitalized shops couldn't manage materials, crews, and insurance timelines simultaneously — a demand surge that ruined the unprepared.</p>
+      <p><strong>2011:</strong> 358 tornadoes, $11B insured losses. PE investments in AL/TN/MS in 2012–13 were acquired at peak storm-cycle multiples. When demand normalized, the underlying business was smaller than the thesis assumed.</p>
+      <div class="pill">🎓 Storm EBITDA ≠ recurring EBITDA. Always normalize the trailing twelve.</div>
+    </div>
+  </div>
+
+</div><!-- end p1 -->
+
+<!-- PAGE 2 BAR -->
+<div class="pb">
+  <div class="pbn">2</div>
+  <div class="pbt">The Edge</div>
+  <div class="pbs">Technology · Key Metric · Bottom Line</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="p2">
+  <div class="p2-inner">
+
+    <!-- TECH SPOTLIGHT -->
+    <div class="slabel">Tech Spotlight — March 2026</div>
+    <h2>Things To Watch: EagleView One</h2>
+    <p style="color:var(--mg);margin-bottom:4px">Each month we spotlight one tool, platform, or technology worth understanding — whether you're an operator, a PE investor evaluating platforms, or both.</p>
+    <hr class="rule">
+
+    <div class="spotlight-grid">
+      <div>
+        <p>If you've been in roofing for more than a few years, you know EagleView as the company that produces the aerial measurement reports your estimators order before every job. That description no longer does it justice. In March 2026, EagleView formally launched <strong style="color:var(--navy)">EagleView One</strong> — a unified, subscription-based platform that combines high-precision aerial imagery, AI-powered analytics, and full 3D property modeling into a single interface accessible from any device. The company is positioning it not as a reporting tool but as a <em>property intelligence platform</em> — and the distinction matters.</p>
+        <p>The headline capability is 3D exterior measurement at 98.77% claimed accuracy, now covering not just roofs but walls, windows, and doors for both residential and commercial properties. For contractors, that means a single platform generating complete exterior scope — not just the roof report. For PE platforms managing multi-crew operations across geographies, it means standardized measurement inputs that survive crew and estimator turnover. EagleView's CEO Piers Dormeyer put it plainly: the goal is to be the single source of truth for every property-related workflow, from estimate to insurance claim to predictive maintenance scheduling.</p>
+        <p style="margin-bottom:0">The March 12th live showcase event introduced EagleView One's virtual collaboration features — multiple stakeholders accessing and manipulating the same 3D property model simultaneously. Think adjuster, contractor, and property owner reviewing the same damage documentation in real time, without anyone climbing a ladder. EagleView also announced <strong style="color:var(--navy)">EagleView Labs</strong>, a dedicated AI innovation hub, and appointed Dr. Dylan Kesler to lead AI research — signaling that the product roadmap is investment-backed, not marketing theater.</p>
+      </div>
+
+      <div>
+        <div class="glance-card">
+          <div class="glance-title">At a Glance</div>
+          <div class="glance-row">
+            <div class="glance-label">Platform</div>
+            <div class="glance-val white">EagleView One</div>
+          </div>
+          <div class="glance-row">
+            <div class="glance-label">Category</div>
+            <div class="glance-val">AI-Powered Property Intelligence</div>
+          </div>
+          <div class="glance-row">
+            <div class="glance-label">Key Capability</div>
+            <div class="glance-val">3D exterior measurement — roof, walls, windows, doors — at 98.77% accuracy from aerial imagery alone</div>
+          </div>
+          <div class="glance-row">
+            <div class="glance-label">What's New in March</div>
+            <div class="glance-val">EagleView One live launch (Mar 12), EagleView Labs AI hub announced, virtual multi-stakeholder collaboration enabled</div>
+          </div>
+          <div class="glance-row">
+            <div class="glance-label">Best For</div>
+            <div class="glance-val">PE platforms standardizing workflows across multi-crew, multi-market operations; insurance restoration contractors</div>
+          </div>
+          <div class="glance-row">
+            <div class="glance-label">Watch-Out</div>
+            <div class="glance-val">Measurement and intelligence platform only — not a CRM or proposal tool. You still need a separate workflow layer (AccuLynx, ServiceTitan) to close the loop.</div>
+          </div>
+        </div>
+        <div class="pe-lens">
+          <div class="pe-lens-label">PE Investor Lens</div>
+          <p>A target platform running EagleView One across all crews has standardized measurement inputs that survive ownership transition. That's a direct multiple driver — it removes estimator key-man risk from the diligence conversation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY METRIC -->
+    <div class="slabel">Key Metric</div>
+    <h2>Revenue Per Crew Per Day (RPCD)</h2>
+    <hr class="rule">
+
+    <div class="metric-hero">
+      <div>
+        <div class="m-unit">Target Benchmark</div>
+        <div class="m-num">$8K</div>
+        <div class="m-name">Revenue Per Crew Per Day</div>
+        <p class="m-desc">The operational heartbeat of a roofing business. If you don't track RPCD, you don't know if you're making money until it's too late.</p>
+        <div class="bench-section">
+          <div class="bench-label-row">Industry Benchmarks</div>
+          <div class="bench-row">
+            <div class="bench-lbl">Struggling operator</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:30%;background:var(--mg)"></div></div>
+            <div class="bench-val">&lt;$4K</div>
+          </div>
+          <div class="bench-row">
+            <div class="bench-lbl">Average operator</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:52%;background:var(--lb)"></div></div>
+            <div class="bench-val">~$6K</div>
+          </div>
+          <div class="bench-row">
+            <div class="bench-lbl">PE-ready operator</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:72%;background:var(--sky)"></div></div>
+            <div class="bench-val">$8K+</div>
+          </div>
+          <div class="bench-row">
+            <div class="bench-lbl">Top-quartile platform</div>
+            <div class="bench-bg"><div class="bench-fill" style="width:100%;background:#fff"></div></div>
+            <div class="bench-val">$12K+</div>
+          </div>
+        </div>
+      </div>
+      <div class="m-right">
+        <p><strong>What it measures:</strong> Total daily revenue divided by the number of active crews on site that day. A crew is typically 3–5 workers plus a lead. This single number tells you whether your crews are sized right, jobs sequenced efficiently, and materials arriving on time.</p>
+        <p><strong>Why PE buyers care:</strong> RPCD is a pre-diligence filter. An operator running $8K+ RPCD across 5+ crews has solved three hard problems: labor productivity, job scheduling, and material logistics. Operators below $5K consistently reveal hidden dysfunction — scope creep, rework, and crew downtime that doesn't show up in the P&amp;L until after close.</p>
+        <p><strong>March 2026 relevance:</strong> With Atlas, CertainTeed, and TAMKO executing 5–8% price increases effective late March/April, operators tracking RPCD in real time can catch margin compression at the crew level before it bleeds into quarterly EBITDA. Those without it will discover the damage in May.</p>
+        <p style="margin-bottom:0"><strong>Watch-out:</strong> High RPCD on residential combined with low commercial exposure can be misleading — residential crews run faster but are more storm-dependent. Normalize for mix before comparing across markets or against a platform peer.</p>
+      </div>
+    </div>
+
+    <!-- BOTTOM LINE -->
+    <div class="callout">
+      <h3>Beyond the Shingle Bottom Line — March 2026</h3>
+      <p>March delivered a clear message: the consolidation window is compressing from both ends simultaneously. <strong>Above the market,</strong> QXO closed Kodiak and now controls a $200B+ addressable market with ~$10B still to deploy — and it has named its next targets. <strong>Inside the market,</strong> Atlas, CertainTeed, and TAMKO executed coordinated 5–8% price increases effective the final week of March, hitting every contractor with open bids and no locked-in material pricing. The operators squeezed hardest are the ones with neither a procurement strategy nor the tech stack to reprice estimates in real time.</p>
+      <p>Meanwhile, the DOL's move to rescind the 2024 independent contractor rule — confirmed in March's legal roundup — offers PE platforms a potential reprieve on W-2 reclassification exposure. That is not permission to ignore the issue. <em>It is permission to get your documentation in order while the regulatory window is favorable.</em> The rule is pending, not resolved.</p>
+      <p>The operators entering Q2 in the strongest position are those who spent March doing three things: <strong>locking material pricing before April effective dates, tracking RPCD to catch margin compression at the crew level, and closing the gap between their estimating cycle and the market's repricing cycle.</strong> Everyone else is reacting. Know your RPCD before a buyer's diligence team does.</p>
+    </div>
+
+    <!-- ANSWER -->
+    <div class="answer">
+      <div class="alabel">Riddle Answer</div>
+      <p><strong>Answer: Pitch.</strong> In roofing, pitch (slope) determines drainage and structural integrity — too flat and you get ponding water; steep is better. In private equity, a "pitch" is the investor presentation, and a steeper growth story signals a more compelling multiple. Same word. Entirely different anxieties — and somehow, the same consequences when you get it wrong.</p>
+    </div>
+
+  </div><!-- end p2-inner -->
+</div><!-- end p2 -->
+
+<!-- FOOTER -->
+<div class="foot">
+  <div>
+    <div class="ft">Beyond the Shingle</div>
+    <div class="fs">Vol. 4 · Issue 4 · April 2026 &nbsp;·&nbsp; Covering March 2026 Activity<br>Intelligence for Roofing Executives &amp; PE Investors</div>
+  </div>
+  <div class="fd">For informational purposes only. Not investment advice. Data sourced from KPMG Corporate Finance, IBISWorld, Roofing Contractor Magazine, Hyde Park Capital, The Deal Sheet, AGC, BLS PPI, HousingWire, and RoofersCoffeeShop. Past performance does not guarantee future results.</div>
+</div>
+
+</body>
+</html>
